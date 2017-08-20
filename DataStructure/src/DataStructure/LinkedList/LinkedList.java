@@ -89,6 +89,41 @@ public class LinkedList {
         }
     }
 
+    //delete the first occurence of data in the list
+    public void deleteElement(int data)
+    {
+        Node deleteNode = head;
+        Node temp = deleteNode;
+        if(head == null)
+        {
+            System.out.println("List Is Empty");
+        }
+        else if((head.data == data) && (head.next==null))
+        {
+            head = null;
+        }
+        else if((head.data == data) && (head.next!=null))
+        {
+            head = head.next;
+        }
+        else
+        {
+            while((deleteNode!=null)&&(deleteNode.data!=data))
+            {
+                temp=deleteNode;
+                deleteNode = deleteNode.next;
+            }
+            if(deleteNode==null)
+            {
+                System.out.println("No Element In the List");
+            }
+            else
+            {
+                temp.next = deleteNode.next;
+            }
+        }
+    }
+
     public static void main(String[] args )
     {
         LinkedList ll = new LinkedList();
@@ -108,6 +143,13 @@ public class LinkedList {
         {
             System.out.println("Enter Location Data and Insert Data: ");
             ll.insertAfterData(sc.nextInt(),sc.nextInt());
+        }
+        ll.traverseList();
+
+        for(int i = 0;i<3;i++)
+        {
+            System.out.println("Enter the Element To Be Deleted");
+            ll.deleteElement(sc.nextInt());
         }
         ll.traverseList();
     }
