@@ -124,33 +124,53 @@ public class LinkedList {
         }
     }
 
-    public static void main(String[] args )
+    public void traverseReverse(Node node)
     {
+        if(node == null)
+            return;
+        traverseReverse(node.next);
+        System.out.println( node.data+" ");
+    }
+
+    public int lengthLinkedList(Node node)
+    {
+        if(node == null)
+            return 0;
+        return (1+ lengthLinkedList(node.next));
+    }
+    public static void main(String[] args ) {
         LinkedList ll = new LinkedList();
         Scanner sc = new Scanner(System.in);
         //Inserting At Beginning
-        for(int i = 0;i<3;i++){
+        for (int i = 0; i < 3; i++) {
             System.out.println("Enter Element: ");
-            ll.insertAtBeginning(sc.nextInt());}
+            ll.insertAtBeginning(sc.nextInt());
+        }
         ll.traverseList();
         //Inserting At end
-        for(int i = 0;i<3;i++){
+        for (int i = 0; i < 3; i++) {
             System.out.println("Enter Element: ");
-            ll.insertAtEnd(sc.nextInt());}
+            ll.insertAtEnd(sc.nextInt());
+        }
         ll.traverseList();
         //Inserting After Data
-        for(int i = 0;i<3;i++)
-        {
+        for (int i = 0; i < 3; i++) {
             System.out.println("Enter Location Data and Insert Data: ");
-            ll.insertAfterData(sc.nextInt(),sc.nextInt());
+            ll.insertAfterData(sc.nextInt(), sc.nextInt());
         }
         ll.traverseList();
 
-        for(int i = 0;i<3;i++)
-        {
+        for (int i = 0; i < 3; i++) {
             System.out.println("Enter the Element To Be Deleted");
             ll.deleteElement(sc.nextInt());
         }
         ll.traverseList();
+
+        System.out.println("Traverse Reverse");
+        ll.traverseReverse(ll.head);
+
+        System.out.println("length of list is: " + ll.lengthLinkedList(ll.head));
+
+
     }
 }
