@@ -1,4 +1,4 @@
-package DataStructure.LinkedList;
+package DataStructure.LinkedList.LinkedList;
 
 import java.util.Scanner;
 
@@ -138,6 +138,18 @@ public class LinkedList {
             return 0;
         return (1+ lengthLinkedList(node.next));
     }
+
+    /*Get Node*/
+    public Node getNode(int data, Node node) {
+        if (node.next.data == data)
+            return node;
+        else if (node == null)
+            return null;
+        else
+            return getNode(data,node.next);
+    }
+
+
     public static void main(String[] args ) {
         LinkedList ll = new LinkedList();
         Scanner sc = new Scanner(System.in);
@@ -171,6 +183,64 @@ public class LinkedList {
 
         System.out.println("length of list is: " + ll.lengthLinkedList(ll.head));
 
+        System.out.println("Swapping Nodes Without swapping data");
+        System.out.println("Enter 1st Node: ");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        ll.swapNodes(x,y);
+        ll.traverseList();
+    }
+
+    public void swapNodes(int x, int y) {
+     Node px,py,cx,cy;
+     cx=head;
+     cy=head;
+     px=null;
+     py=null;
+
+     if(x==y)
+     {
+         return;
+     }
+
+     while(cx.data!=x)
+     {
+         px = cx;
+         cx = cx.next;
+     }
+
+     if(cx==null)
+     {
+         System.out.println("No Element Name "+x);
+         return ;
+     }
+
+     while(cy.data!=y)
+     {
+         py = cy;
+         cy = cy.next;
+     }
+     if(cy==null)
+     {
+         System.out.println("No Element Name "+y);
+         return ;
+     }
+     if(py==null)
+     {
+         head = cx;
+     }
+     else
+        py.next = cx;
+     if(px == null)
+     {
+         head = cy;
+     }
+     else
+         px.next = cy;
+
+     Node temp = cx.next;
+     cx.next = cy.next;
+     cy.next = temp;
 
     }
 }
