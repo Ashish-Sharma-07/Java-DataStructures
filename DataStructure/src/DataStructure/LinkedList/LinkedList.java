@@ -1,4 +1,4 @@
-package DataStructure.LinkedList.LinkedList;
+package DataStructure.LinkedList;
 
 import java.util.Scanner;
 

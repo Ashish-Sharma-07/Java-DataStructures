@@ -1,14 +1,16 @@
+package DataStructure.LinkedList;
+
 public class loopFind {
 
     public static void main(String[] arg)
     {
-        LinkedList ll = new LinkedList();
-        LinkedList.Node n1 = new LinkedList.Node(10);
-        LinkedList.Node n2 = new LinkedList.Node(11);
-        LinkedList.Node n3 = new LinkedList.Node(12);
-        LinkedList.Node n4 = new LinkedList.Node(13);
-        LinkedList.Node n5 = new LinkedList.Node(14);
-        LinkedList.Node n6 = new LinkedList.Node(15);
+        NewLinkedList ll = new NewLinkedList();
+        NewLinkedList.Node n1 = new NewLinkedList.Node(10);
+        NewLinkedList.Node n2 = new NewLinkedList.Node(11);
+        NewLinkedList.Node n3 = new NewLinkedList.Node(12);
+        NewLinkedList.Node n4 = new NewLinkedList.Node(13);
+        NewLinkedList.Node n5 = new NewLinkedList.Node(14);
+        NewLinkedList.Node n6 = new NewLinkedList.Node(15);
 
         ll.head = n1;
         n1.next = n2;
@@ -20,7 +22,7 @@ public class loopFind {
     }
 }
 
-class LinkedList{
+class NewLinkedList{
 
     Node head;
     static class Node{
