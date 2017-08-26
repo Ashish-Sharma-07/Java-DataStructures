@@ -149,6 +149,9 @@ public class LinkedList {
             return getNode(data,node.next);
     }
 
+    /*
+    *
+    */
 
     public static void main(String[] args ) {
         LinkedList ll = new LinkedList();
